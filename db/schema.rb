@@ -10,34 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_06_093622) do
-  create_table "dicts", force: :cascade do |t|
-    t.string "key"
-    t.string "value"
-    t.string "server_id"
-    t.boolean "is_regex"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "guilds", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2022_06_12_090947) do
+  create_table "panels", force: :cascade do |t|
+    t.string "guild"
     t.string "name"
-    t.boolean "tts_blocked"
+    t.string "channel"
+    t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "speakers", force: :cascade do |t|
-    t.string "server_id"
-    t.string "engine"
-    t.string "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.boolean "tts_blocked"
+  create_table "roles", force: :cascade do |t|
+    t.integer "panel"
+    t.string "role"
+    t.string "emoji"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
